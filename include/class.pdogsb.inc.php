@@ -60,6 +60,16 @@ class PdoGsb{
 		$ligne = $rs->fetch();
 		return $ligne;
 	}
+        
+        //Ajout fonction getInfosComptable
+	public function getInfosComptable($login, $mdp){
+		$req = "select comptable.id as id, comptable.nom as nom, comptable.prenom as prenom from comptable 
+		where comptable.login='$login' and comptable.mdp='$mdp'";
+		$rs = PdoGsb::$monPdo->query($req);
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
+     
 
 /**
  * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
