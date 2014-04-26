@@ -69,6 +69,13 @@ class PdoGsb{
 		$ligne = $rs->fetch();
 		return $ligne;
 	}
+        
+	public function getNomPrenomIdVisiteur(){
+		$req ="select visiteur.nom as nom, visiteur.prenom as prenom, visiteur.id as id from visiteur";
+		$rs = PdoGsb::$monPdo->query($req);
+		//$nom = $rs->fetch();
+		return $rs;
+	}
      
 
 /**
