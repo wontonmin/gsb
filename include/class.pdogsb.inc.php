@@ -17,7 +17,7 @@
 
 class PdoGsb{   		
       	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=gsbV2';   		
+      	private static $bdd='dbname=gsbv2';   		
       	private static $user='root' ;    		
       	private static $mdp='' ;	
 		private static $monPdo;
@@ -261,6 +261,14 @@ class PdoGsb{
 		$req = "delete from lignefraishorsforfait where lignefraishorsforfait.id =$idFrais ";
 		PdoGsb::$monPdo->exec($req);
 	}
+        
+        
+        
+        public function supprimerHorsForfait($user, $mois){
+		$req = "delete from lignefraishorsforfait where lignefraishorsforfait.idVisiteur='$user' and lignefraishorsforfait.mois = '$mois';";
+		PdoGsb::$monPdo->exec($req);
+	}
+        
 /**
  * Retourne les mois pour lesquel un visiteur a une fiche de frais
  
@@ -314,5 +322,23 @@ class PdoGsb{
 		where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
 	}
+        
+        
+        
+        /**
+         * 
+         * Retourne les fiche de frais à valider et mises en paiement
+         * 
+         * 
+         * 
+         */
+        
+        public function getFicheFraisSuivre() {
+            
+            $req = "SELECT ficheFrais.idVisiteur as v_id, ficheFrais.mois as v_mois, ficheFrais.montantValide as v_montant FROM fichefrais WHERE ficheFrais.idEtat = 'VA';";
+            $res = PdoGsb::$monPdo->query($req);
+            $tab = $res->fetchAll();
+            return $tab;
+        }
 }
 ?>

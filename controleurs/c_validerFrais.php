@@ -24,7 +24,18 @@ switch($action){
 		$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($user,$dateValid);
 		$montantValide = $lesInfosFicheFrais['montantValide'];
                 include("vues/v_listeVisiteur.php");
-		include ("vues/v_validFrais.php");
+                //--------------------------
+                //si aucune fiche de frais n'existe
+                if (empty($lesInfosFicheFrais)) {
+                    //Message d'erreur
+                    ?>
+                        <span style='color:red'> Pas de fiche de frais pour ce visiteur ce mois. </span>
+                    <?php
+                }
+                //si une fiche de frais existe
+                else {
+                    include ("vues/v_validFrais.php");
+                }
 		break;
 	}
 	
