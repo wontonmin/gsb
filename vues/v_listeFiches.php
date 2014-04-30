@@ -1,12 +1,12 @@
 ﻿<div id="contenu">
     
-    <h1> Suivie de paiement </h1>
+    <h1> Suivi de paiement </h1>
 
     <form action="index.php?uc=suivreFrais&action=voirFiche" method="post">
         <div class="corpsForm">
             <h3>Choisir une fiche : </h3>
             <p>
-                <span style='color:green'>Fiche (état valider et mises en paiement):</span>
+                <span style='color:green'>Fiche (état validé et mise en paiement):</span>
                 <select id="lstVisiteur" name="lstVisiteur"> 
                 <?php
                         foreach($listeFiches as $data) 
@@ -20,7 +20,7 @@
                                 //afin d'obtenir le mois et l'id séparément
 
                 ?> 
-                <option value="<?php echo $v_mois.$v_id; ?>"> <?php echo "idVisiteur: ".$v_id." - Mois(aaaamm): ".$v_mois." - MontantValider: ".$v_montant." €" ?> </option>
+                <option value="<?php echo $v_mois.$v_id; ?>"> <?php echo "ID Visiteur: ".$v_id." | Mois (aaaamm): ".$v_mois." | Montant validé: ".$v_montant."€" ?> </option>
                 <?php
                         }
                 ?>

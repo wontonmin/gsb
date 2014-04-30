@@ -7,7 +7,7 @@
     <br/>
     
     <table class="listeLegere">
-       <caption>Eléments forfaitisés </caption>
+       <caption>Eléments forfaitisés</caption>
         <tr>
          <?php
             foreach ( $lesFraisForfait as $unFraisForfait ) 
