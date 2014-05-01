@@ -1,8 +1,14 @@
+﻿<div id="contenu">
+    
+    <h2>Déconnecté</h2>
 
-<ul>
-<?php
-	  $id = $_SESSION['idVisiteur'];
-      echo "bonjour $id <a href='Deconnexion.php' >Deconnexion</a>";
 
-?>
-</ul>
+    <p>
+        Vous avez été déconnecté.
+    </p>
+    
+    <a href="index.php?uc=connexion">
+        Se connecter ?
+    </a>
+
+</div>

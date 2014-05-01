@@ -8,6 +8,13 @@ switch($action){
 		include("vues/v_connexion.php");
 		break;
 	}
+        case 'deconnexion': {
+        
+            //déconnect l'utilisateur
+            deconnecter();
+            include("vues/v_deconnexion.php");
+            break;
+        }
 	case 'valideConnexion':{
 		$login = $_REQUEST['login'];
 		$mdp = $_REQUEST['mdp'];
@@ -27,7 +34,7 @@ switch($action){
                                 $id = $comptable['id'];
                                 $nom = $comptable['nom'];
                                 $prenom = $comptable['prenom'];
-                                connecter_c($id,$nom,$prenom);
+                                connecter($id,$nom,$prenom);
                                 include("vues/v_sommaire_c.php");
                         }
                 }

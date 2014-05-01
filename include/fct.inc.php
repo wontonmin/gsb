@@ -25,12 +25,6 @@ function connecter($id,$nom,$prenom){
 	$_SESSION['nom']= $nom;
 	$_SESSION['prenom']= $prenom;
 }
-
-function connecter_c($id,$nom,$prenom){
-	$_SESSION['idComptable']= $id; 
-	$_SESSION['nom']= $nom;
-	$_SESSION['prenom']= $prenom;
-}
 /**
  * Détruit la session active
  */
