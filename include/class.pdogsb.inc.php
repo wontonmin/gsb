@@ -265,9 +265,16 @@ class PdoGsb{
         
         
         public function supprimerHorsForfait($user, $mois){
+		$req = "update lignefraishorsforfait set libelle = CONCAT('REFUSER_', libelle) where lignefraishorsforfait.idVisiteur='$user' and lignefraishorsforfait.mois = '$mois';";
+		PdoGsb::$monPdo->exec($req);
+	}
+        
+        /*
+        public function supprimerHorsForfait($user, $mois){
 		$req = "delete from lignefraishorsforfait where lignefraishorsforfait.idVisiteur='$user' and lignefraishorsforfait.mois = '$mois';";
 		PdoGsb::$monPdo->exec($req);
 	}
+        */
         
 /**
  * Retourne les mois pour lesquel un visiteur a une fiche de frais
